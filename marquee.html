@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息滚动</title>
+    <script src="https://lc.dbazure.cn/dbfx/dbfx.js"></script>
+    <script src="https://lc.dbazure.cn/dbfx/dbfx.commodel.js"></script>
+    <script src="https://lc.dbazure.cn/dbfxui/dbfx.web.controls.js"></script>
+    <script src="https://lc.dbazure.cn/dbfx/dbfx.commodel.js"></script>
+
+    <script src="dbfx.web.controls.messageScrollBox.js"></script>
+</head>
+<body>
+
+
+<script>
+
+    var msb = new DBFX.Web.Controls.MessageScrollBox();
+    msb.ScrollDir = 'left';
+    // msb.SetFontSize('20px');
+    msb.BgColor = 'orange';
+    // msb.ScrollBehavior = 'alternate';
+    msb.ScrollSpeed = 22;
+    msb.SetHeight('50px');
+    // msb.BgColor = '#96baff';
+    // msb.SetBackgroundColor('#96baff');
+    msb.Datas = ['恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖','adfqw','eqgh','fsg','wertttt'];
+    msb.SetFontSize('12px');
+    // msb.VisualElement.style.color = "red";
+
+    document.body.appendChild(msb.VisualElement);
+
+</script>
+</body>
+</html>

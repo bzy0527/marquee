@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        a {
+            text-decoration: none;
+        }
+        .notice {
+            width: 840px;
+            margin: 0 auto;
+            margin-top: 10px;
+            height: 45px;
+        }
+        .notice_title {
+            color: #fff;
+            font-family: "微软雅黑";
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 5px 8px 5px 20px;
+            text-align: center;
+            background-color:#025483;
+            width: 120px;
+            float: left;
+        }
+        .notice_list {
+            width: 680px;
+            float: right;
+            height: 33px;
+            overflow: hidden;
+        }
+        .notice_list li{
+            list-style-type: none;
+            height: 33px;
+        }
+        .notice_list a:link,.notice_list a:visited{
+            color: #333;
+            font-size: 16px;
+        }
+        .notice_list a:hover,.notice_list a:active{
+            color: #025483;
+            font-weight: bold;
+        }
+        .date {
+            color: #888;
+            font-size: 14px;
+            float: right;
+        }
+    </style>
+
+</head>
+<body>
+<div class="notice">
+    <div class="notice_title">通知公告</div>
+
+    <div class="notice_list" id="notice_list_content">
+        <ul>
+            <li>
+                <a href="#">西南交通大学面向海内外公开招聘部分管理岗位的公告(2016年第4号)</a><span class="date">2016-09-27</span>
+            </li>
+            <li><a href="#">关于沱江河停止放水及犀浦校区人工湖水位相关情况的通报</a><span class="date">2016-09-27</span></li>
+            <li><a href="#">关于组织2016年国庆“老年健身走“活动的通知</a><span class="date">2016-09-27</span></li>
+            <li><a href="#">关于举行“交通领域发展现状及干部成长”公开课的通知</a><span class="date">2016-09-27</span></li>
+        </ul>
+
+    </div><!-- notice_title结束 -->
+</div>
+<script type="text/javascript">
+    var area = document.getElementById('notice_list_content');
+    area.innerHTML += area.innerHTML;
+    area.scrollTop = 0;
+    var timer;
+    function startMove(){
+        timer = setInterval(scrollUp,50);
+        area.scrollTop++;
+    }
+    function scrollUp()
+    {
+        if(area.scrollTop%33 === 0)
+        {
+            clearInterval(timer);
+            setTimeout(startMove,1000);
+        }
+        else
+        {
+            area.scrollTop++;
+            if(area.scrollTop >= area.scrollHeight/2)
+            {
+                area.scrollTop = 0;
+            }
+        }
+    }
+    setTimeout(startMove,1000);
+</script>
+
+</body>
+</html>

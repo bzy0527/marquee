@@ -96,11 +96,11 @@ DBFX.Web.Controls.MessageScrollBox = function () {
 
     msb.SetWidth = function (v) {
         msb.VisualElement.style.width = v;
-        msb.marqueeE.width = parseInt(v);
+        // msb.marqueeE.width = parseInt(v);
     }
     msb.SetHeight = function (v) {
         msb.VisualElement.style.height = v;
-        msb.marqueeE.height = parseInt(v);
+        // msb.marqueeE.height = parseInt(v);
     }
 
     msb.SetBorderRadius = function (v) {
@@ -111,16 +111,23 @@ DBFX.Web.Controls.MessageScrollBox = function () {
     //布局滚动元素
     msb.layoutView = function (datas) {
 
+
+
         //判断是否为数组
         if(datas instanceof Array){
+
             //清空滚动区域的所有元素
             msb.marqueeE.innerText = '';
+
+            var scrollText = '';
 
             for(var i=0;i<datas.length;i++){
                 var messageE = document.createElement('div');
                 messageE.style.display = 'inline-block';
+                // messageE.style.height = '40px';
                 messageE.innerText = datas[i];
-                msb.marqueeE.appendChild(messageE);
+                scrollText += datas[i];
+                scrollText += "&emsp;&emsp;";
 
                 //FIXME:
                 // var msg = new DBFX.Web.Controls.Message();
@@ -130,16 +137,27 @@ DBFX.Web.Controls.MessageScrollBox = function () {
 
 
                 var brE = document.createElement('br');
+                var brE01 = document.createElement('br');
+
                 var blankspaceE = document.createElement('div');
                 blankspaceE.style.display = 'inline-block';
                 blankspaceE.style.width = '15px';
                 blankspaceE.style.height = '100%';
 
-                if(msb.scrollDir=='left' || msb.scrollDir == 'right'){
-                    msb.marqueeE.appendChild(blankspaceE);
-                }else {
+                if(msb.scrollDir=='up' || msb.scrollDir == 'down'){
+                    // console.log('左右滚动');
+                    // msb.marqueeE.innerText = '恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖'
+                    // // msb.marqueeE.appendChild(blankspaceE);
+                    // console.log('上下滚动');
+                    msb.marqueeE.appendChild(messageE);
                     msb.marqueeE.appendChild(brE);
+                    msb.marqueeE.appendChild(brE01);
+
                 }
+            }
+
+            if(msb.scrollDir=='left' || msb.scrollDir == 'right'){
+                msb.marqueeE.innerHTML = scrollText;
             }
         }
     }
@@ -152,8 +170,13 @@ DBFX.Web.Controls.MessageScrollBox = function () {
 
         var scrollArea = document.createElement('div');
         scrollArea.style.display = "flex";
+        // scrollArea.style.display = "-webkit-flex";
         scrollArea.style.flexDirection = "column";
+        scrollArea.style.webkitFlexDirection = "column";
+
         scrollArea.style.justifyContent = "center";
+        scrollArea.style.webkitJustifyContent = "center";
+
         scrollArea.style.height = "100%";
         scrollArea.style.width = "100%";
         scrollArea.style.justifyContent = "center";
@@ -161,12 +184,26 @@ DBFX.Web.Controls.MessageScrollBox = function () {
 
         //滚动区域
         msb.marqueeE = document.createElement('marquee');
+        msb.marqueeE.style.display = "-webkit-box";
+        msb.marqueeE.style.display = "-moz-box";
+        msb.marqueeE.style.display = "-ms-flexbox";
+        msb.marqueeE.style.display = "-webkit-flex";
         msb.marqueeE.style.display = "flex";
+
+
+        msb.marqueeE.style.webkitBoxOrient = "vertical";
+        msb.marqueeE.style.webkitBoxDirection = "normal";
         msb.marqueeE.style.flexDirection = "column";
+        msb.marqueeE.style.webkitFlexDirection = "column";
+
+        msb.marqueeE.style.webkitJustifyContent = "center";
         msb.marqueeE.style.justifyContent = "center";
+        msb.marqueeE.style.webkitBoxPack = "center";
+
         msb.marqueeE.style.height = "100%";
         msb.marqueeE.style.width = "100%";
-        msb.marqueeE.style.justifyContent = "center";
+        msb.marqueeE.style.lineHeight = "100%";
+
 
         scrollArea.appendChild(msb.marqueeE);
         msb.marqueeE.scrollDelay = 300;

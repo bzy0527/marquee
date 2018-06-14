@@ -9,26 +9,36 @@
     <script src="https://lc.dbazure.cn/dbfx/dbfx.commodel.js"></script>
 
     <script src="dbfx.web.controls.messageScrollBox.js"></script>
+    <style>
+        #div{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+    </style>
 </head>
 <body>
 
+<div id="div"></div>
 
 <script>
 
     var msb = new DBFX.Web.Controls.MessageScrollBox();
     msb.ScrollDir = 'left';
     // msb.SetFontSize('20px');
-    msb.BgColor = 'orange';
+    msb.SetBackgroundColor('red');
     // msb.ScrollBehavior = 'alternate';
-    msb.ScrollSpeed = 22;
-    msb.SetHeight('50px');
+    msb.ScrollSpeed = 10;
+    msb.SetHeight("170px");
+
     // msb.BgColor = '#96baff';
-    // msb.SetBackgroundColor('#96baff');
-    msb.Datas = ['恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖','adfqw','eqgh','fsg','wertttt'];
+    msb.SetBackgroundColor('#96baff');
+    msb.Datas = ['恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜','asdfwetasdfqef','XXX抽中一等奖恭喜XXX抽中一等奖','XX抽中一等奖恭喜X'];
     msb.SetFontSize('12px');
+    msb.SetWidth("80%");
     // msb.VisualElement.style.color = "red";
 
-    document.body.appendChild(msb.VisualElement);
+    document.getElementById('div').appendChild(msb.VisualElement);
 
 </script>
 </body>

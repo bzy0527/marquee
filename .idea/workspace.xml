@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d952ea9-ea04-4e21-b86d-3160a02ab944" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/testBlock.html" />
       <change beforePath="$PROJECT_DIR$/dbfx.web.controls.messageScrollBox.js" afterPath="$PROJECT_DIR$/dbfx.web.controls.messageScrollBox.js" />
-      <change beforePath="$PROJECT_DIR$/marquee.html" afterPath="$PROJECT_DIR$/marquee.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,17 +19,17 @@
       <file leaf-file-name="dbfx.web.controls.messageScrollBox.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dbfx.web.controls.messageScrollBox.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="150" column="43" lean-forward="true" selection-start-line="150" selection-start-column="43" selection-end-line="150" selection-end-column="43" />
+            <state relative-caret-position="274">
+              <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
               <folding>
                 <element signature="e#972#1167#0" expanded="false" />
                 <element signature="e#1251#1454#0" expanded="false" />
-                <element signature="e#6591#7269#0" expanded="false" />
-                <element signature="e#7338#7826#0" expanded="false" />
-                <element signature="e#7868#9439#0" expanded="false" />
-                <element signature="e#8034#8201#0" expanded="false" />
-                <element signature="e#8270#8452#0" expanded="false" />
-                <element signature="e#8514#8685#0" expanded="false" />
+                <element signature="e#6566#7244#0" expanded="false" />
+                <element signature="e#7313#7801#0" expanded="false" />
+                <element signature="e#7843#9414#0" expanded="false" />
+                <element signature="e#8009#8176#0" expanded="false" />
+                <element signature="e#8245#8427#0" expanded="false" />
+                <element signature="e#8489#8660#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -51,8 +48,8 @@
       <file leaf-file-name="marquee.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marquee.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+            <state relative-caret-position="391">
+              <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -138,8 +135,8 @@
         <option value="$PROJECT_DIR$/messageScroll.js" />
         <option value="$PROJECT_DIR$/MessageScrollBoxDesigner.scrp" />
         <option value="$PROJECT_DIR$/marquee.html" />
-        <option value="$PROJECT_DIR$/dbfx.web.controls.messageScrollBox.js" />
         <option value="$PROJECT_DIR$/testBlock.html" />
+        <option value="$PROJECT_DIR$/dbfx.web.controls.messageScrollBox.js" />
       </list>
     </option>
   </component>
@@ -149,9 +146,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="393" />
-    <option name="y" value="28" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="420" />
+    <option name="y" value="23" />
     <option name="width" value="1344" />
     <option name="height" value="977" />
   </component>
@@ -220,15 +217,15 @@
       <updated>1528101231715</updated>
       <workItem from="1528101234136" duration="48285000" />
       <workItem from="1528858278802" duration="764000" />
-      <workItem from="1528942590405" duration="11992000" />
+      <workItem from="1528942590405" duration="12288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61041000" />
+    <option name="totallyTimeSpent" value="61337000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="393" y="28" width="1344" height="977" extended-state="1" />
+    <frame x="420" y="23" width="1344" height="977" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24330357" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -270,12 +267,12 @@
           <folding>
             <element signature="e#972#1167#0" expanded="false" />
             <element signature="e#1251#1454#0" expanded="false" />
-            <element signature="e#6591#7269#0" expanded="false" />
-            <element signature="e#7338#7826#0" expanded="false" />
-            <element signature="e#7868#9439#0" expanded="false" />
-            <element signature="e#8034#8201#0" expanded="false" />
-            <element signature="e#8270#8452#0" expanded="false" />
-            <element signature="e#8514#8685#0" expanded="false" />
+            <element signature="e#6566#7244#0" expanded="false" />
+            <element signature="e#7313#7801#0" expanded="false" />
+            <element signature="e#7843#9414#0" expanded="false" />
+            <element signature="e#8009#8176#0" expanded="false" />
+            <element signature="e#8245#8427#0" expanded="false" />
+            <element signature="e#8489#8660#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -341,12 +338,12 @@
           <folding>
             <element signature="e#972#1167#0" expanded="false" />
             <element signature="e#1251#1454#0" expanded="false" />
-            <element signature="e#6591#7269#0" expanded="false" />
-            <element signature="e#7338#7826#0" expanded="false" />
-            <element signature="e#7868#9439#0" expanded="false" />
-            <element signature="e#8034#8201#0" expanded="false" />
-            <element signature="e#8270#8452#0" expanded="false" />
-            <element signature="e#8514#8685#0" expanded="false" />
+            <element signature="e#6566#7244#0" expanded="false" />
+            <element signature="e#7313#7801#0" expanded="false" />
+            <element signature="e#7843#9414#0" expanded="false" />
+            <element signature="e#8009#8176#0" expanded="false" />
+            <element signature="e#8245#8427#0" expanded="false" />
+            <element signature="e#8489#8660#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -447,10 +444,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testBlock.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/marquee.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        <state relative-caret-position="391">
+          <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -463,27 +468,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testBlock.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dbfx.web.controls.messageScrollBox.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="150" column="43" lean-forward="true" selection-start-line="150" selection-start-column="43" selection-end-line="150" selection-end-column="43" />
+        <state relative-caret-position="274">
+          <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
           <folding>
             <element signature="e#972#1167#0" expanded="false" />
             <element signature="e#1251#1454#0" expanded="false" />
-            <element signature="e#6591#7269#0" expanded="false" />
-            <element signature="e#7338#7826#0" expanded="false" />
-            <element signature="e#7868#9439#0" expanded="false" />
-            <element signature="e#8034#8201#0" expanded="false" />
-            <element signature="e#8270#8452#0" expanded="false" />
-            <element signature="e#8514#8685#0" expanded="false" />
+            <element signature="e#6566#7244#0" expanded="false" />
+            <element signature="e#7313#7801#0" expanded="false" />
+            <element signature="e#7843#9414#0" expanded="false" />
+            <element signature="e#8009#8176#0" expanded="false" />
+            <element signature="e#8245#8427#0" expanded="false" />
+            <element signature="e#8489#8660#0" expanded="false" />
           </folding>
         </state>
       </provider>

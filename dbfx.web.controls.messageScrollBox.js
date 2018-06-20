@@ -67,7 +67,7 @@ DBFX.Web.Controls.MessageScrollBox = function () {
 
     //滚动次数
     //滚动数据源
-    msb.datas = ['信息1:','信息2:','信息3:','信息4:'];
+    msb.datas = [''];
     Object.defineProperty(msb,'Datas',{
         get:function () {
             return msb.datas;

@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>测试弹性盒子</title>
+    <title>测试字幕控件</title>
     <style>
         .box{
             width: 500px;
-            height: 500px;
+            height: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -23,25 +23,42 @@
             font-size: 12px;
             text-wrap: none;
         }
+        .ah {
+            margin-left: 30px;
+        }
+        li{
+            margin-top: 10px;
+        }
+
+        span{
+            margin-left: 30px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="box">
-
-        <div>沉默的大多数沉默的大多数沉默的大多数沉默的</div>
-        <br>
-        <br>
-        <br>
-        <div>沉默的大多数沉默的大多数沉默的大多数沉默的</div>
-        <br><br>
-        <div>沉默的大多数沉默的大多数沉默的大多数沉默的</div>
-        <br><br>
-        <div>沉默的大多数沉默的大多数沉默的大多数沉默的</div>
+<marquee behavior="scroll" direction="left" class="box" scrolldelay="300" scrollAmount="22">
+    <!--<a href="#" class="ah">你好</a>-->
+    <!--<a href="#" class="ah">再见</a>-->
+    <!--<a href="#" class="ah">hello</a>-->
+    <!--<a href="#" class="ah">world</a>-->
 
 
 
-    </div>
+        <span>nihao   hello world1</span>
+        <span>nihao   hello world2</span>
+        <span>nihao   hello world3</span>
+        <span>nihao   hello world4</span>
+
+    <!--<ul>-->
+        <!--<li>你好</li>-->
+        <!--<li>再见</li>-->
+        <!--<li>hello</li>-->
+        <!--<li>world</li>-->
+        <!--<li>bye bye!</li>-->
+    <!--</ul>-->
+
+</marquee>
 
 
 

@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>消息滚动</title>
+    <link rel="stylesheet" href="MessageScrollBox.css">
     <script src="https://lc.dbazure.cn/dbfx/dbfx.js"></script>
     <script src="https://lc.dbazure.cn/dbfx/dbfx.commodel.js"></script>
     <script src="https://lc.dbazure.cn/dbfxui/dbfx.web.controls.js"></script>
-    <script src="https://lc.dbazure.cn/dbfx/dbfx.commodel.js"></script>
+    <!--<script src="https://lc.dbazure.cn/dbfx/dbfx.commodel.js"></script>-->
 
     <script src="dbfx.web.controls.messageScrollBox.js"></script>
     <style>
@@ -24,21 +25,36 @@
 <script>
 
     var msb = new DBFX.Web.Controls.MessageScrollBox();
+    document.getElementById('div').appendChild(msb.VisualElement);
     msb.ScrollDir = 'left';
-    // msb.SetFontSize('20px');
-    msb.SetBackgroundColor('red');
+    msb.SetFontSize('14px');
+    // msb.SetBackgroundColor('red');
     // msb.ScrollBehavior = 'alternate';
-    msb.ScrollSpeed = 10;
+    msb.ScrollSpeed = 5;
     msb.SetHeight("170px");
+    msb.SetWidth("80%");
 
     // msb.BgColor = '#96baff';
     msb.SetBackgroundColor('#96baff');
-    msb.Datas = ['恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜','asdfwetasdfqef','XXX抽中一等奖恭喜XXX抽中一等奖','XX抽中一等奖恭喜X'];
-    msb.SetFontSize('12px');
-    msb.SetWidth("80%");
+    // msb.ScrollDir = 'up';
+
+    // msb.Datas = ['它定义为两条线的','asdfwetasdfqef','XXX抽中一等奖恭喜XXX抽中一等奖','XX抽中一等奖恭喜X'];
+
+
+    msb.ItemSource = [{"Text":"11它定义为两条线的","id":"32323232"},
+                        {"Text":"22它定义为两条线的","id":"32323232"},
+                        {"Text":"33它定义为两条线的","id":"32323232"},
+                        {"Text":"44它定义为两条线的","id":"32323232"}];
+
+    msb.MessageClick = function () {
+        console.log("hello^");
+        console.log(msb.MessageInfo);
+    }
     // msb.VisualElement.style.color = "red";
 
-    document.getElementById('div').appendChild(msb.VisualElement);
+
+
+
 
 </script>
 </body>

@@ -12,7 +12,21 @@ DBFX.Web.Controls.MessageScrollBox = function () {
     msb.ClassDescriptor.Serializer = "DBFX.Serializer.MessageScrollBoxSerializer";
 
     msb.VisualElement = document.createElement('DIV');
+    msb.VisualElement.className = "MessageScrollBox";
     msb.OnCreateHandle();
+    msb.OnCreateHandle = function () {
+        msb.VisualElement.innerHTML = "<DIV class='MessageScrollBox_Container'><marquee class='MessageScrollBox_ScrollArea'></marquee></DIV>";
+
+        msb.marqueeE = msb.VisualElement.querySelector("marquee.MessageScrollBox_ScrollArea");
+        msb.marqueeE.scrollDelay = 300;
+        msb.marqueeE.onmouseover = function (ev) {
+            this.stop();
+        }
+
+        msb.marqueeE.onmouseout = function (ev) {
+            this.start();
+        }
+    }
 
     //滚动方向
     msb.scrollDir = 'left';
@@ -23,6 +37,14 @@ DBFX.Web.Controls.MessageScrollBox = function () {
         set:function (v) {
            msb.scrollDir = v;
            msb.marqueeE.direction = v;
+            if(msb.scrollDir=='up' || msb.scrollDir == 'down'){
+                msb.marqueeE.style.flexDirection = "column";
+
+            }
+            if(msb.scrollDir=='left' || msb.scrollDir == 'right'){
+                msb.marqueeE.style.flexDirection = "row";
+
+            }
 
         }
     });
@@ -51,18 +73,16 @@ DBFX.Web.Controls.MessageScrollBox = function () {
         }
     });
 
-
-    //背景色
-    // msb.bgColor = 'white';
-    // Object.defineProperty(msb,'BgColor',{
-    //     get:function () {
-    //         return msb.bgColor;
-    //     },
-    //     set:function (v) {
-    //         msb.bgColor = v;
-    //         msb.marqueeE.bgColor = v;
-    //     }
-    // });
+    //显示成员
+    msb.displayMember = "Text";
+    Object.defineProperty(msb, "DisplayMember", {
+        get: function () {
+            return msb.displayMember;
+        },
+        set: function (v) {
+            msb.displayMember = v;
+        }
+    });
 
 
     //滚动次数
@@ -106,12 +126,9 @@ DBFX.Web.Controls.MessageScrollBox = function () {
     msb.SetBorderRadius = function (v) {
         msb.VisualElement.style.borderRadius = v;
     }
-
-
+    
     //布局滚动元素
     msb.layoutView = function (datas) {
-
-
 
         //判断是否为数组
         if(datas instanceof Array){
@@ -139,88 +156,105 @@ DBFX.Web.Controls.MessageScrollBox = function () {
                 var brE = document.createElement('br');
                 var brE01 = document.createElement('br');
 
-                var blankspaceE = document.createElement('div');
-                blankspaceE.style.display = 'inline-block';
-                blankspaceE.style.width = '15px';
-                blankspaceE.style.height = '100%';
+                var spanE = document.createElement('span');
+                spanE.className = "MessageScrollBox_MessageOld";
+                spanE.innerText = datas[i];
 
                 if(msb.scrollDir=='up' || msb.scrollDir == 'down'){
-                    // console.log('左右滚动');
-                    // msb.marqueeE.innerText = '恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖恭喜XXX抽中一等奖'
-                    // // msb.marqueeE.appendChild(blankspaceE);
-                    // console.log('上下滚动');
+
                     msb.marqueeE.appendChild(messageE);
                     msb.marqueeE.appendChild(brE);
                     msb.marqueeE.appendChild(brE01);
+                }
+
+                if(msb.scrollDir=='left' || msb.scrollDir == 'right'){
+                    msb.marqueeE.appendChild(spanE);
 
                 }
+
             }
+
+            //TODO:
+            // if(msb.scrollDir=='left' || msb.scrollDir == 'right'){
+            //     msb.marqueeE.innerHTML = scrollText;
+            // }
+        }
+    }
+    
+    //TODO:以下方法9.20
+    Object.defineProperty(msb,'ItemSource',{
+        get:function () {
+            return msb.itemSource;
+        },
+        set:function (v) {
+            msb.itemSource = v;
+            msb.createMsgs(v);
+        }
+    });
+
+    //处理消息点击
+    msb.handleMsgClick = function (e) {
+        if (msb.Command != undefined && msb.Command != null) {
+            msb.Command.Sender = msb;
+            msb.Command.Execute();
+        }
+        if(msb.MessageClick != undefined && msb.MessageClick.GetType() == "Command"){
+            msb.MessageClick.Sender = msb;
+            msb.MessageClick.Execute();
+        }
+
+        if(msb.MessageClick != undefined && msb.MessageClick.GetType() == "function"){
+            msb.MessageClick(e,msb);
+        }
+    }
+
+    msb.MessageInfo = undefined;
+
+    msb.createMsgs = function (datas) {
+        if(!Array.isArray(datas)) return;
+        //清空滚动区域的所有元素
+        msb.marqueeE.innerText = '';
+
+        for(var i=0;i<datas.length;i++){
+
+            if(msb.scrollDir=='up' || msb.scrollDir == 'down'){
+                var messageE = document.createElement('div');
+                messageE.className = "MessageScrollBox_MessageUp";
+                // messageE.style.height = '40px';
+                messageE.innerText = datas[i][msb.displayMember];
+                messageE.info = datas[i];
+                // msb.MessageInfo = datas[i];
+                messageE.onmousedown = function (ev) {
+                    msb.MessageInfo = this.info;
+                    msb.handleMsgClick(ev);
+                }
+
+                var brE = document.createElement('br');
+                var brE01 = document.createElement('br');
+
+                msb.marqueeE.appendChild(messageE);
+                msb.marqueeE.appendChild(brE);
+                msb.marqueeE.appendChild(brE01);
+            }
+
 
             if(msb.scrollDir=='left' || msb.scrollDir == 'right'){
-                msb.marqueeE.innerHTML = scrollText;
+                var spanE = document.createElement('span');
+                spanE.className = "MessageScrollBox_Message";
+                spanE.innerText = datas[i][msb.displayMember];
+                spanE.info = datas[i];
+                spanE.onmousedown = function (ev) {
+                    msb.MessageInfo = this.info;
+                    msb.handleMsgClick(ev);
+                }
+
+                msb.marqueeE.appendChild(spanE);
+
             }
         }
     }
 
-    msb.onload = function () {
-        var msbV = msb.VisualElement;
-        msbV.style.width = '250px';
-        msbV.style.height = '40px';
-        // msbV.style.border = '1px solid red';
-
-        var scrollArea = document.createElement('div');
-        scrollArea.style.display = "flex";
-        // scrollArea.style.display = "-webkit-flex";
-        scrollArea.style.flexDirection = "column";
-        scrollArea.style.webkitFlexDirection = "column";
-
-        scrollArea.style.justifyContent = "center";
-        scrollArea.style.webkitJustifyContent = "center";
-
-        scrollArea.style.height = "100%";
-        scrollArea.style.width = "100%";
-        scrollArea.style.justifyContent = "center";
-        msbV.appendChild(scrollArea);
-
-        //滚动区域
-        msb.marqueeE = document.createElement('marquee');
-        msb.marqueeE.style.display = "-webkit-box";
-        msb.marqueeE.style.display = "-moz-box";
-        msb.marqueeE.style.display = "-ms-flexbox";
-        msb.marqueeE.style.display = "-webkit-flex";
-        msb.marqueeE.style.display = "flex";
-
-
-        msb.marqueeE.style.webkitBoxOrient = "vertical";
-        msb.marqueeE.style.webkitBoxDirection = "normal";
-        msb.marqueeE.style.flexDirection = "column";
-        msb.marqueeE.style.webkitFlexDirection = "column";
-
-        msb.marqueeE.style.webkitJustifyContent = "center";
-        msb.marqueeE.style.justifyContent = "center";
-        msb.marqueeE.style.webkitBoxPack = "center";
-
-        msb.marqueeE.style.height = "100%";
-        msb.marqueeE.style.width = "100%";
-        msb.marqueeE.style.lineHeight = "100%";
-
-
-        scrollArea.appendChild(msb.marqueeE);
-        msb.marqueeE.scrollDelay = 300;
-        //布局滚动信息
-        msb.layoutView(msb.datas);
-
-
-        msb.marqueeE.onmouseover = function (ev) {
-            this.stop();
-        }
-
-        msb.marqueeE.onmouseout = function (ev) {
-            this.start();
-        }
-
-    }
-    msb.onload();
+    msb.OnCreateHandle();
     return msb;
 
 }
@@ -232,6 +266,9 @@ DBFX.Serializer.MessageScrollBoxSerializer = function () {
         DBFX.Serializer.DeSerialProperty("ScrollDir", c, xe);
         DBFX.Serializer.DeSerialProperty("ScrollBehavior", c, xe);
         DBFX.Serializer.DeSerialProperty("ScrollSpeed", c, xe);
+        DBFX.Serializer.DeSerialProperty("DisplayMember", c, xe);
+
+        DBFX.Serializer.DeSerializeCommand("MessageClick", xe, c);
     }
 
     //系列化
@@ -240,6 +277,9 @@ DBFX.Serializer.MessageScrollBoxSerializer = function () {
         DBFX.Serializer.SerialProperty("ScrollDir", c.ScrollDir, xe);
         DBFX.Serializer.SerialProperty("ScrollBehavior", c.ScrollBehavior, xe);
         DBFX.Serializer.SerialProperty("ScrollSpeed", c.ScrollSpeed, xe);
+        DBFX.Serializer.SerialProperty("DisplayMember", c.DisplayMember, xe);
+
+        DBFX.Serializer.SerializeCommand("MessageClick", c.MessageClick, xe);
 
     }
 }
@@ -251,7 +291,19 @@ DBFX.Design.ControlDesigners.MessageScrollBoxDesigner = function () {
 
         DBFX.Resources.LoadResource("design/DesignerTemplates/FormDesignerTemplates/MessageScrollBoxDesigner.scrp", function (od) {
             od.DataContext = obdc.dataContext;
+
+            //设计器中绑定事件处理
+            od.EventListBox = od.FormContext.Form.FormControls.EventListBox;
+            od.EventListBox.ItemSource = [{EventName:"MessageClick",EventCode:undefined,Command:od.dataContext.MessageClick,Control:od.dataContext}];
         }, obdc);
+    }
+
+    //事件处理程序
+    obdc.DataContextChanged = function (e) {
+        obdc.DataBind(e);
+        if(obdc.EventListBox != undefined){
+            obdc.EventListBox.ItemSource = [{EventName:"MessageClick",EventCode:undefined,Command:obdc.dataContext.MessageClick,Control:obdc.dataContext}];
+        }
     }
 
     obdc.HorizonScrollbar = "hidden";
